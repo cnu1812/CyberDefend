@@ -11,6 +11,8 @@ import Auth from './pages/Auth';
 import Footer from "./components/Footer";
 import RansomwareBlog from "./pages/blogs/ransomware";
 import ZeroTrustBlog from './pages/blogs/zerotrust';
+import CloudSecurityBlog from './pages/blogs/cloud-security';
+import TheImpactOfAIBlog from './pages/blogs/ai-cybersecurity';
 import EthicalHackingFundamentals from './pages/courses/ethical-hacking-fundamentals';
 import SplashScreen from "./components/SplashScreen";
 
@@ -35,6 +37,9 @@ function App() {
           
           <Navbar />
           <Routes>
+            {/* Homepage */}
+
+
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/blogs" element={<Blogs />} />
@@ -42,8 +47,12 @@ function App() {
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/auth" element={<Auth />} />
+            {/* // blogs  */}
             <Route path="/blogs/ransomware" element={<RansomwareBlog />} />
             <Route path="/blogs/zerotrust" element={<ZeroTrustBlog />} />
+            <Route path='/blogs/cloud-security' element={<CloudSecurityBlog />} />
+            <Route path='/blogs/ai-cybersecurity' element={<TheImpactOfAIBlog />} />
+            {/* Courses */}
             <Route path="/courses/ethical-hacking-fundamentals" element={<EthicalHackingFundamentals />} />
           </Routes>
          

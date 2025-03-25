@@ -26,20 +26,28 @@ const Footer = () => {
 
           {/* Quick Links (Improved Styling & Positioning) */}
           <div className="flex flex-col items-center">
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-4">
-              {["Home", "Courses", "Blog", "About", "Careers", "Contact"].map((link, index) => (
-                <motion.a
-                  key={index}
-                  href="#"
-                  className="text-gray-400 hover:text-accent text-sm font-medium transition duration-300 relative after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {link}
-                </motion.a>
-              ))}
-            </div>
-          </div>
+  <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+  <div className="grid grid-cols-2 gap-4">
+    {[
+      { name: "Home", path: "/" },
+      { name: "Courses", path: "/courses" },
+      { name: "Blog", path: "/blogs" },
+      { name: "About", path: "/about" },
+      { name: "Careers", path: "/careers" },
+      { name: "Contact", path: "/contact" },
+    ].map((link, index) => (
+      <motion.a
+        key={index}
+        href={link.path}
+        className="text-gray-400 hover:text-accent text-sm font-medium transition duration-300 relative after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+        whileHover={{ scale: 1.1 }}
+      >
+        {link.name}
+      </motion.a>
+    ))}
+  </div>
+</div>
+
 
           {/* Social Links */}
           <div className="flex flex-col items-center md:items-start">

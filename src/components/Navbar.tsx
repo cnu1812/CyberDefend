@@ -23,8 +23,8 @@ const Navbar = () => {
           {/* LOGO */}
           <div className="flex items-center">
             <Link to="/">
-              <motion.img
-                src="src/images/cyberdefend-logo.png"
+              <motion.img               
+                src="src/images/ani.svg"
                 alt="CyberDefend Logo"
                 className="h-16 w-auto" // Adjusted size
                 whileHover={{ scale: 1.1 }}
