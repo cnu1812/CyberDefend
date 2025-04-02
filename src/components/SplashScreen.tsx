@@ -110,7 +110,7 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
         animate={{ opacity: [0, 0.2, 0], scale: [1, 1.05, 1] }}
         transition={{ duration: 0.3, repeat: 3, delay: 2.5 }}
       >
-        YOU ARE IN THE RIGHT PLACE TO CONQUER SECURITY ATTACKS & THREATS
+        YOU ARE AT THE RIGHT PLACE TO FULFILL YOUR CYBERSECURITY NEEDS
       </motion.div>
 
       {/* Rotating Firewall Rings */}
