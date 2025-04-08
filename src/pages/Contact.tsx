@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwR1ReDFhIh1MDoZNUSfiJhbJAz92-MT2vFQ5j0cKIgUqdmsT7VK-GxHLlYiKziF3k/exec"; // Replace this
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTOABRiSvh3W5Nwl71Fk0E2p-cZgYEzkuH--j21qzthlAdkO7BUuhzHYIqwVAT2x8S/exec"; 
 
 const Contact = () => {
   const [formData, setFormData] = useState({

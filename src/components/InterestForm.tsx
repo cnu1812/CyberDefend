@@ -22,6 +22,7 @@ const InterestForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "", // ✅ Added phone to state
     interestType: "Courses",
     selectedCourse: courseOptions[0],
     selectedCertification: certOptions[0],
@@ -38,7 +39,7 @@ const InterestForm: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbwCI318bxO8b3tGv4-e9cvY3f8mXqLnXu9to089aXoKLPcQf8WdUHoFHTZy_ZUjK7PE/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycby-VH93FedWd0cExlOvYWrDCaPfXK2Ed1iZDW4N9dsEWvEqq63a4J098gSSmLzhW334TQ/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
@@ -61,6 +62,7 @@ const InterestForm: React.FC = () => {
       setFormData({
         name: "",
         email: "",
+        phone: "", // ✅ Reset phone
         interestType: "Courses",
         selectedCourse: courseOptions[0],
         selectedCertification: certOptions[0],
@@ -105,6 +107,18 @@ const InterestForm: React.FC = () => {
               name="email"
               required
               value={formData.email}
+              onChange={handleChange}
+              className="w-full bg-primary border border-accent rounded px-4 py-2"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Phone Number</label>
+            <input
+              type="tel"
+              name="phone"
+              required
+              value={formData.phone}
               onChange={handleChange}
               className="w-full bg-primary border border-accent rounded px-4 py-2"
             />

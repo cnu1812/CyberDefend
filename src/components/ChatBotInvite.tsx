@@ -4,9 +4,12 @@ import confetti from "canvas-confetti";
 
 const ChatBotInvite = () => {
   const [showFooterMessage, setShowFooterMessage] = useState(false);
+  const [closedType, setClosedType] = useState<string | null>(null);
   const lastMessageRef = useRef(false);
   const confettiFired = useRef(false);
   const [scrollDir, setScrollDir] = useState<"up" | "down">("down");
+
+  const currentType = showFooterMessage ? "footer" : "initial";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,25 +19,19 @@ const ChatBotInvite = () => {
 
       const isNowFooterMessage = scrollY > halfway;
 
-      // Only update if state changes
       if (lastMessageRef.current !== isNowFooterMessage) {
         lastMessageRef.current = isNowFooterMessage;
         setShowFooterMessage(isNowFooterMessage);
 
-        // Trigger confetti once on footer message
+        // Reset closedType when message changes
+        setClosedType(null);
+
+        // Trigger confetti only once
         if (isNowFooterMessage && !confettiFired.current) {
-          confetti({
-            particleCount: 100,
-            spread: 80,
-            origin: { y: 0.7 },
-          });
+          confetti({ particleCount: 100, spread: 80, origin: { y: 0.7 } });
           confettiFired.current = true;
         }
-
-        // Reset confetti flag when scrolling up
-        if (!isNowFooterMessage) {
-          confettiFired.current = false;
-        }
+        if (!isNowFooterMessage) confettiFired.current = false;
       }
 
       setScrollDir(scrollY > window.scrollY ? "down" : "up");
@@ -47,24 +44,30 @@ const ChatBotInvite = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-end gap-2">
       <AnimatePresence>
-        <motion.div
-          key={showFooterMessage ? "footer" : "initial"}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.4 }}
-          className="relative bg-white text-primary px-4 py-3 rounded-2xl shadow-xl text-sm font-medium max-w-xs"
-        >
-          {showFooterMessage ? (
-            <>
-              💡 We do provide <strong>end-user training</strong>. Do reach out to us for more details!
-            </>
-          ) : (
-            <>
-              👋 Hey there! Join our <strong>WhatsApp Community</strong> for free resources, updates, and cyber tips!
-            </>
-          )}
-        </motion.div>
+        {closedType !== currentType && (
+          <motion.div
+            key={currentType}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.4 }}
+            className="relative bg-white text-primary px-4 py-3 rounded-2xl shadow-xl text-sm font-medium max-w-xs"
+          >
+            <button
+              onClick={() => setClosedType(currentType)}
+              className="absolute top-1 right-2 text-xs text-gray-500 hover:text-black"
+              aria-label="Close message"
+            >
+              ✖
+            </button>
+
+            {showFooterMessage ? (
+              <>💡 We do provide <strong>end-user training</strong>. Do reach out to us for more details!</>
+            ) : (
+              <>👋 Hey there! Join our <strong>WhatsApp Community</strong> for free resources, updates, and cyber tips!</>
+            )}
+          </motion.div>
+        )}
       </AnimatePresence>
 
       <motion.a
@@ -79,9 +82,8 @@ const ChatBotInvite = () => {
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="w-20 h-20 rounded-full bg-white flex items-center justify-center animate-[breath_4s_ease-in-out_infinite]"
       >
-        {/* Your SVG bot face here */}
-
-        {/* BOT SVG */}
+      
+          {/* BOT SVG */}
  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="70" height="70">
  <defs>
    <radialGradient id="bodyGradient" cx="50%" cy="50%" r="50%">
@@ -178,13 +180,21 @@ const ChatBotInvite = () => {
    <circle cx="0" cy="45" r="2" fill="#00bcd4" />
  </g>
 </svg>
-
+        
       </motion.a>
     </div>
   );
 };
 
 export default ChatBotInvite;
+
+
+
+
+
+
+
+ 
 
 
 
