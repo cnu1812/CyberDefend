@@ -3,38 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const form = e.target as HTMLFormElement;
-    const data = new FormData(form);
-
-    fetch("/", {
-      method: "POST",
-      body: data,
-    })
-      .then(() => {
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      })
-      .catch((error) => alert("Something went wrong, please try again."));
-  };
 
   return (
     <div className="pt-16 min-h-screen bg-primary">
@@ -109,10 +78,17 @@ const Contact = () => {
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                onSubmit={handleSubmit}
+                netlify-honeypot="bot-field"
                 className="space-y-6"
+                onSubmit={() => setIsSubmitted(true)}
               >
+                {/* Hidden inputs required for Netlify */}
                 <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don’t fill this out if you’re human: <input name="bot-field" />
+                  </label>
+                </p>
 
                 <div>
                   <label htmlFor="name" className="block text-white mb-2">Name</label>
@@ -120,8 +96,6 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
                     className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                     required
                   />
@@ -133,8 +107,6 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
                     className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                     required
                   />
@@ -146,8 +118,6 @@ const Contact = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
                     className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                     required
                   />
@@ -158,8 +128,6 @@ const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
                     rows={6}
                     className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                     required
