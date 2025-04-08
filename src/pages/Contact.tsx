@@ -19,6 +19,27 @@ const Contact = () => {
     });
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyM57INRzOyHCSTtv8WIwtFIEMB0mcXdPK7qsdnaUoNPTrNhwpUYghbJILyWpEajKWJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Something went wrong. Please try again later.');
+    }
+  };
+
   return (
     <div className="pt-16 min-h-screen bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -85,21 +106,7 @@ const Contact = () => {
                 </p>
               </motion.div>
             ) : (
-              <form
-                name="contact-form"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-                onSubmit={() => setIsSubmitted(true)}
-                className="space-y-6"
-              >
-                <input type="hidden" name="form-name" value="contact-form" />
-                <p hidden>
-                  <label>
-                    Don’t fill this out: <input name="bot-field" />
-                  </label>
-                </p>
-
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-white mb-2">Name</label>
                   <input
@@ -166,15 +173,6 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Hidden backup form to ensure Netlify detects it at build time */}
-      <form name="contact-form" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="text" name="subject" />
-        <textarea name="message"></textarea>
-      </form>
     </div>
   );
 };
