@@ -100,7 +100,7 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
           YOU ARE IN THE RIGHT PLACE
         </motion.span>
         <br />
-        TO CONQUER SECURITY ATTACKS & THREATS
+        TO FULFILL YOUR CYBERSECURITY NEEDS
       </motion.div>
 
       {/* Glitch Effect for Message */}

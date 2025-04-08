@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, User, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
+import InterestForm from "../../components/InterestForm";
 
 const EthicalHackingFundamentals = () => {
   const [formData, setFormData] = useState({
@@ -70,45 +71,13 @@ const EthicalHackingFundamentals = () => {
           </motion.button>
         </Link>
 
-        {/* Interest Form */}
-        <div className="mt-12 p-6 bg-darkBg rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4">Show Your Interest</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full p-2 rounded bg-gray-800 text-white"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-2 rounded bg-gray-800 text-white"
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Your Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="w-full p-2 rounded bg-gray-800 text-white"
-            />
-            <button
-              type="submit"
-              className="w-full bg-accent text-primary py-2 rounded font-semibold hover:bg-opacity-90 transition"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+        <div className="bg-primary text-white">
+      {/* Course details UI... */}
+
+      {/* Interest form at the end */}
+      <InterestForm />
+    </div>
+        
       </div>
     </div>
   );

@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 12px rgba(0, 188, 212, 0.4), 0 0 24px rgba(0, 188, 212, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 18px rgba(0, 188, 212, 0.6), 0 0 30px rgba(0, 188, 212, 0.3);
+    }
+  }
+
+  @keyframes breath {
+    0%, 100% {
+      box-shadow: 0 0 12px rgba(0, 188, 212, 0.4), 0 0 24px rgba(0, 188, 212, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 18px rgba(0, 188, 212, 0.6), 0 0 32px rgba(0, 188, 212, 0.3);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  @layer utilities {
+    .animate-shimmer {
+      background-size: 200% 100%;
+      animation: shimmer 2s linear infinite;
+    }
+  }
+
+  .confetti-container {
+    z-index: 1000;
+  }
+  

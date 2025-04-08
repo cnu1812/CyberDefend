@@ -1,46 +1,43 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, User } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const courses = [
   {
-    title: 'Ethical Hacking Fundamentals',
-    instructor: 'John Smith',
-    startDate: 'March 15, 2024',
-    duration: '8 weeks',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b'
+    title: "Cybersecurity Beginner Course",
+    instructor: "Manoj Kumar",
+    startDate: "TBA",
+    duration: "6 weeks",
+    level: "Beginner",
+    category: "Cybersecurity",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
+    slug: "ethical-hacking-fundamentals",
   },
   {
-    title: 'Network Security Advanced',
-    instructor: 'Sarah Johnson',
-    startDate: 'March 20, 2024',
-    duration: '10 weeks',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31'
+    title: "Cybersecurity Intermediate Course",
+    instructor: "Manoj Kumar",
+    startDate: "TBA",
+    duration: "8 weeks",
+    level: "Intermediate",
+    category: "Cybersecurity",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31",
+    slug: "cybersecurity-intermediate-course",
   },
   {
-    title: 'Cloud Security Masterclass',
-    instructor: 'Mike Wilson',
-    startDate: 'April 1, 2024',
-    duration: '12 weeks',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa'
+    title: "Cybersecurity Masterclass",
+    instructor: "Manoj Kumar",
+    startDate: "TBA",
+    duration: "10 weeks",
+    level: "Advanced",
+    category: "Cybersecurity",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    slug: "cybersecurity-masterclass",
   },
-  {
-    title: 'Cloud Security Intermediate',
-    instructor: 'Mike Wilson',
-    startDate: 'April 4, 2024',
-    duration: '12 weeks',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa'
-  },
-  {
-    title: 'Cloud Security Beginner',
-    instructor: 'Mike Wilson',
-    startDate: 'April 5, 2024',
-    duration: '12 weeks',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa'
-  }
 ];
 
 const CourseSlider = () => {
+  const navigate = useNavigate();
   const sliderRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<number | null>(null);
 
@@ -51,13 +48,13 @@ const CourseSlider = () => {
 
     const scrollNext = () => {
       if (!slider) return;
-      slider.scrollLeft += 350; // Move to the next card
+      slider.scrollLeft += 350;
       if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-        slider.scrollLeft = 0; // Reset to the start
+        slider.scrollLeft = 0;
       }
     };
 
-    intervalRef.current = setInterval(scrollNext, 3000); // Auto-slide every 3 sec
+    intervalRef.current = setInterval(scrollNext, 3000);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -139,9 +136,12 @@ const CourseSlider = () => {
                     {course.duration}
                   </div>
                 </div>
+
+                {/* Enroll Now Button with Navigate */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate('/courses')}
                   className="w-full bg-accent text-primary py-2 rounded-md font-bold transition-colors duration-300 hover:bg-accent/90"
                 >
                   Enroll Now

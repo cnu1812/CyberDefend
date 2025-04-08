@@ -14,6 +14,7 @@ const Navbar = () => {
     { name: "About", path: "/about" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" },
+    { name: "Certification", path: "/certifications"}
   ];
 
   return (
@@ -51,9 +52,9 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="bg-accent text-primary px-4 py-2 rounded-md font-semibold shadow-md transition duration-200 hover:bg-opacity-90"
-              onClick={() => navigate("/auth")}
+              onClick={() => window.open("https://lms-link.com", "_blank")}
             >
-              Login / Sign Up
+              Login to LMS
             </motion.button>
           </div>
 
@@ -90,11 +91,12 @@ const Navbar = () => {
             <button
               className="w-full bg-accent text-primary mt-4 px-5 py-2 rounded-md font-semibold shadow-md transition duration-200 hover:bg-opacity-90"
               onClick={() => {
-                navigate("/auth");
+                window.open("https://lms-link.com", "_blank");
                 setIsOpen(false);
               }}
+              
             >
-              Login / Sign Up
+              Login to LMS
             </button>
           </div>
         </motion.div>

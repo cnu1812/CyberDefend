@@ -1,27 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Users, Award, Target } from "lucide-react";
+import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 
 const About = () => {
-  const team = [
+  const coFounders = [
     {
-      name: "Dr. Sarah Johnson",
-      role: "Chief Security Officer",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-      description: "Former cybersecurity advisor with 15+ years of experience.",
+      name: "V Sreenivas",
+      role: "Co-Founder",
+      image: "https://avatars.githubusercontent.com/u/75531528?v=4",
+      description: "Leading strategy, operations, and outreach.",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
+        twitter: "https://twitter.com/cnu1812",
+      },
     },
     {
-      name: "Michael Chen",
-      role: "Lead Instructor",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-      description: "Certified ethical hacker and security researcher.",
-    },
-    {
-      name: "Emma Davis",
-      role: "Cloud Security Expert",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-      description:
-        "AWS certified professional with extensive cloud security experience.",
+      name: "Manoj Kumar",
+      role: "Co-Founder",
+      image: "https://media.licdn.com/dms/image/v2/D4D03AQG6m8Glfb1IHQ/profile-displayphoto-shrink_400_400/B4DZWucRVkHkAk-/0/1742388402040?e=1749686400&v=beta&t=OcvhvcAbW3UtF-aDEMP9Bf6GGK-VwaDH_V9k6bQEHG0",
+      description: "Driving vision and product innovation at CyberDefend.",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/manoj-kumar-797977241/",
+        twitter: "https://twitter.com/manojkumar",
+      },
     },
   ];
 
@@ -63,7 +65,7 @@ const About = () => {
               {
                 icon: <Shield size={40} className="text-accent mb-4" />,
                 title: "Our Aim",
-                description: "Creating a community of ethical hackers.",
+                description: "Cybersecurity Simplified!",
               },
             ].map((item, index) => (
               <motion.div
@@ -123,23 +125,32 @@ const About = () => {
 
         {/* Our Team */}
         <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-          <h2 className="text-3xl font-bold mb-8 text-center slide-in">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {team.map((member, index) => (
+          <h2 className="text-3xl font-bold mb-8 text-center slide-in">Meet the Founders</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {coFounders.map((member, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 className="bg-darkBg p-6 rounded-lg shadow-lg hover:shadow-accent/30 transition-all duration-300"
               >
-                <motion.img
+                <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-56 object-cover rounded-lg mb-4 hover:scale-110 transition-transform duration-500"
+                  className="w-full h-56 object-cover rounded-lg mb-4"
                 />
                 <h3 className="text-white font-bold text-xl mb-2">{member.name}</h3>
                 <p className="text-accent text-sm font-semibold mb-2">{member.role}</p>
-                <p className="text-gray-400">{member.description}</p>
+                <p className="text-gray-400 mb-4">{member.description}</p>
+                <div className="flex gap-4">
+                  <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer">
+                    <FaLinkedin className="text-white hover:text-accent transition" />
+                  </a>
+                  <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer">
+                    <FaTwitter className="text-white hover:text-accent transition" />
+                  </a>
+                  
+                </div>
               </motion.div>
             ))}
           </div>
