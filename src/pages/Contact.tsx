@@ -27,7 +27,7 @@ const Contact = () => {
     try {
       const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors', // suppress CORS error, expected with Google Scripts
+        mode: 'no-cors', 
         headers: {
           'Content-Type': 'application/json',
         },
