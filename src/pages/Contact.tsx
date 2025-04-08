@@ -23,7 +23,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyM57INRzOyHCSTtv8WIwtFIEMB0mcXdPK7qsdnaUoNPTrNhwpUYghbJILyWpEajKWJ/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwimq_Bfk6ahN_0Fp8BwTs-PkGlccUUtOYuG8CEfj1wQ_mcw-RqzASgWui6171AcErY/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
