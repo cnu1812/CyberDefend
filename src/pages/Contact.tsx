@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwR1ReDFhIh1MDoZNUSfiJhbJAz92-MT2vFQ5j0cKIgUqdmsT7VK-GxHLlYiKziF3k/exec"; // Replace this
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,7 +17,7 @@ const Contact = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -23,9 +25,9 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwimq_Bfk6ahN_0Fp8BwTs-PkGlccUUtOYuG8CEfj1wQ_mcw-RqzASgWui6171AcErY/exec', {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'no-cors', // suppress CORS error, expected with Google Scripts
         headers: {
           'Content-Type': 'application/json',
         },
@@ -33,10 +35,15 @@ const Contact = () => {
       });
 
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Submission error:', error);
-      alert('Something went wrong. Please try again later.');
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+    } catch (error: any) {
+      console.error('Error submitting form:', error.message || error);
+      alert('Something went wrong. Please try again.');
     }
   };
 

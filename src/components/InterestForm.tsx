@@ -19,32 +19,56 @@ const certOptions = [
 const InterestForm: React.FC = () => {
   const [interestType, setInterestType] = useState("Courses");
   const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    interestType: "Courses",
+    selectedCourse: courseOptions[0],
+    selectedCertification: certOptions[0],
+  });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(form) as any).toString(),
-    })
-      .then(() => {
-        toast.success("🎉 Submission Successful! We’ll get back to you shortly 🚀", {
-          duration: 4000,
-        });
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwCI318bxO8b3tGv4-e9cvY3f8mXqLnXu9to089aXoKLPcQf8WdUHoFHTZy_ZUjK7PE/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-        confetti({
-          particleCount: 100,
-          spread: 80,
-          origin: { y: 0.6 },
-        });
+      toast.success("🎉 Submission Successful! We’ll get back to you shortly 🚀", {
+        duration: 4000,
+      });
 
-        setShowModal(true);
-        form.reset();
-        setInterestType("Courses");
-      })
-      .catch(() => toast.error("❌ Oops! Something went wrong. Try again."));
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 },
+      });
+
+      setShowModal(true);
+      setFormData({
+        name: "",
+        email: "",
+        interestType: "Courses",
+        selectedCourse: courseOptions[0],
+        selectedCertification: certOptions[0],
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("❌ Oops! Something went wrong. Try again.");
+    }
   };
 
   return (
@@ -59,22 +83,17 @@ const InterestForm: React.FC = () => {
         </motion.h2>
 
         <form
-          name="interest-form"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           className="bg-darkBg p-6 rounded-lg shadow-md space-y-6"
         >
-          <input type="hidden" name="form-name" value="interest-form" />
-          <input type="hidden" name="bot-field" />
-
           <div>
             <label className="block text-sm font-medium mb-1">Full Name</label>
             <input
               type="text"
               name="name"
               required
+              value={formData.name}
+              onChange={handleChange}
               className="w-full bg-primary border border-accent rounded px-4 py-2"
             />
           </div>
@@ -85,6 +104,8 @@ const InterestForm: React.FC = () => {
               type="email"
               name="email"
               required
+              value={formData.email}
+              onChange={handleChange}
               className="w-full bg-primary border border-accent rounded px-4 py-2"
             />
           </div>
@@ -93,8 +114,8 @@ const InterestForm: React.FC = () => {
             <label className="block text-sm font-medium mb-1">Interested In</label>
             <select
               name="interestType"
-              value={interestType}
-              onChange={(e) => setInterestType(e.target.value)}
+              value={formData.interestType}
+              onChange={handleChange}
               className="w-full bg-primary border border-accent rounded px-4 py-2"
             >
               <option value="Courses">Courses</option>
@@ -102,11 +123,13 @@ const InterestForm: React.FC = () => {
             </select>
           </div>
 
-          {interestType === "Courses" && (
+          {formData.interestType === "Courses" && (
             <div>
               <label className="block text-sm font-medium mb-1">Select Course</label>
               <select
                 name="selectedCourse"
+                value={formData.selectedCourse}
+                onChange={handleChange}
                 className="w-full bg-primary border border-accent rounded px-4 py-2"
               >
                 {courseOptions.map((course, idx) => (
@@ -118,11 +141,13 @@ const InterestForm: React.FC = () => {
             </div>
           )}
 
-          {interestType === "Certifications" && (
+          {formData.interestType === "Certifications" && (
             <div>
               <label className="block text-sm font-medium mb-1">Select Certification</label>
               <select
                 name="selectedCertification"
+                value={formData.selectedCertification}
+                onChange={handleChange}
                 className="w-full bg-primary border border-accent rounded px-4 py-2"
               >
                 {certOptions.map((cert, idx) => (
