@@ -3,7 +3,21 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
     <div className="pt-16 min-h-screen bg-primary">
@@ -31,16 +45,16 @@ const Contact = () => {
           >
             <div>
               <h2 className="text-2xl font-bold text-white mb-6">Contact Information</h2>
-              <div className="space-y-4 text-gray-300">
-                <div className="flex items-center">
+              <div className="space-y-4">
+                <div className="flex items-center text-gray-300">
                   <Mail className="text-accent mr-4" size={24} />
                   <span>support@cyberdefend.in</span>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center text-gray-300">
                   <Phone className="text-accent mr-4" size={24} />
                   <span>+1 (555) 123-4567</span>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center text-gray-300">
                   <MapPin className="text-accent mr-4" size={24} />
                   <span>512 Vaishnavi Enclave, Hebbal, Bangalore 560024</span>
                 </div>
@@ -59,7 +73,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-            {submitted ? (
+            {isSubmitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -72,17 +86,18 @@ const Contact = () => {
               </motion.div>
             ) : (
               <form
-                name="contact"
+                name="contact-form"
                 method="POST"
                 data-netlify="true"
                 netlify-honeypot="bot-field"
+                onSubmit={() => setIsSubmitted(true)}
                 className="space-y-6"
-                onSubmit={() => setSubmitted(true)}
               >
-                {/* Hidden fields for Netlify */}
-                <input type="hidden" name="form-name" value="contact" />
-                <p className="hidden">
-                  <label>Don’t fill this out: <input name="bot-field" /></label>
+                <input type="hidden" name="form-name" value="contact-form" />
+                <p hidden>
+                  <label>
+                    Don’t fill this out: <input name="bot-field" />
+                  </label>
                 </p>
 
                 <div>
@@ -91,7 +106,9 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:ring-2 focus:ring-accent"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                     required
                   />
                 </div>
@@ -102,7 +119,9 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:ring-2 focus:ring-accent"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                     required
                   />
                 </div>
@@ -113,7 +132,9 @@ const Contact = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:ring-2 focus:ring-accent"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                     required
                   />
                 </div>
@@ -123,8 +144,10 @@ const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={6}
-                    className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:ring-2 focus:ring-accent"
+                    className="w-full px-4 py-2 bg-darkBg text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                     required
                   ></textarea>
                 </div>
@@ -135,13 +158,23 @@ const Contact = () => {
                   type="submit"
                   className="w-full bg-accent text-primary py-3 rounded-lg font-bold flex items-center justify-center"
                 >
-                  Send Message <Send size={16} className="ml-2" />
+                  Send Message
+                  <Send size={16} className="ml-2" />
                 </motion.button>
               </form>
             )}
           </motion.div>
         </div>
       </div>
+
+      {/* Hidden backup form to ensure Netlify detects it at build time */}
+      <form name="contact-form" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="subject" />
+        <textarea name="message"></textarea>
+      </form>
     </div>
   );
 };
