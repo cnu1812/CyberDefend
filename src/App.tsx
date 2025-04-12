@@ -18,6 +18,7 @@ import SplashScreen from "./components/SplashScreen";
 import ChatBotInvite from "./components/ChatBotInvite";
 import Certification from "./components/Certification";
 import CEHSlugPage from './pages/certification/certified-ethical-hacker';
+import JobFormPage from './components/JobFormPage';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -50,6 +51,8 @@ function App() {
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/certifications" element={<Certification />} />
+            <Route path="/careers/:slug" element={<JobFormPage />} />
+
             {/* // blogs  */}
             <Route path="/blogs/ransomware" element={<RansomwareBlog />} />
             <Route path="/blogs/zerotrust" element={<ZeroTrustBlog />} />

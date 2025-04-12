@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase, MapPin, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Clock, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const positions = [
   {
     title: "Senior Security Instructor",
+    slug: "senior-security-instructor",
     location: "Remote",
     type: "Full-time",
     description:
@@ -18,6 +20,7 @@ const positions = [
   },
   {
     title: "Content Developer - Cybersecurity",
+    slug: "content-developer-cybersecurity",
     location: "Hybrid",
     type: "Full-time",
     description:
@@ -31,6 +34,7 @@ const positions = [
   },
   {
     title: "Lab Environment Specialist",
+    slug: "lab-environment-specialist",
     location: "Remote",
     type: "Full-time",
     description:
@@ -48,7 +52,6 @@ const Careers = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#121212] to-[#1a1a1a]">
       <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
-      
       <div className="max-w-7xl mx-auto px-6 sm:px-8 py-20">
         {/* Hero Section */}
         <motion.section
@@ -67,47 +70,6 @@ const Careers = () => {
           </p>
         </motion.section>
 
-        {/* Culture Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-white text-center mb-8">
-            Our Culture
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Innovation First",
-                description:
-                  "We embrace new technologies and methodologies to stay ahead in cybersecurity education.",
-              },
-              {
-                title: "Continuous Learning",
-                description:
-                  "We believe in constant growth and provide resources for professional development.",
-              },
-              {
-                title: "Work-Life Balance",
-                description:
-                  "We value flexibility and understand the importance of personal time.",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="bg-darkBg p-6 rounded-lg shadow-lg hover:shadow-accent/30 transition duration-300"
-              >
-                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
         {/* Open Positions */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
@@ -121,15 +83,19 @@ const Careers = () => {
             {positions.map((position, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.02, boxShadow: "0px 4px 15px rgba(255, 255, 255, 0.1)" }}
+                whileHover={{
+                  scale: 1.02,
+                  boxShadow: "0px 4px 15px rgba(255, 255, 255, 0.1)",
+                }}
                 transition={{ type: "spring", stiffness: 200 }}
                 className="bg-darkBg p-6 rounded-lg border border-gray-800 relative overflow-hidden transition-all"
               >
-                {/* Floating Glow Effect */}
-                <div className="absolute inset-0 bg-accent/5 opacity-0 hover:opacity-10 transition duration-500" />
-                
+                <div className="absolute inset-0 bg-accent/5 opacity-0 hover:opacity-10 transition duration-500 pointer-events-none" />
+
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-xl font-bold text-white">{position.title}</h3>
+                  <h3 className="text-xl font-bold text-white">
+                    {position.title}
+                  </h3>
                   <div className="flex items-center gap-4 text-gray-400 mt-2 md:mt-0">
                     <div className="flex items-center">
                       <MapPin size={16} className="mr-1" />
@@ -153,19 +119,21 @@ const Careers = () => {
                   </ul>
                 </div>
 
-                <motion.button
-  whileHover={{
-    scale: 1.05,
-    backgroundColor: "rgba(255, 255, 255, 0.15)",
-    boxShadow: "0px 0px 10px rgba(0, 255, 255, 0.5)",
-  }}
-  transition={{ duration: 0.3 }}
-  className="flex items-center text-accent hover:text-white transition-all py-2 px-5 border border-accent rounded-md relative overflow-hidden"
->
-  Apply Now
-  <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-2" />
-</motion.button>
-
+                {/* Apply Now Button */}
+                <Link to={`/careers/${position.slug}`} className="inline-block">
+                  <motion.button
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "rgba(255, 255, 255, 0.05)",
+                      boxShadow: "0px 0px 10px rgba(0, 255, 255, 0.3)",
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="flex items-center text-accent hover:text-white border border-accent px-4 py-2 rounded-md"
+                  >
+                    Apply Now
+                    <ArrowRight size={16} className="ml-2" />
+                  </motion.button>
+                </Link>
               </motion.div>
             ))}
           </div>
