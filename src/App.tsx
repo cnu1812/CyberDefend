@@ -19,6 +19,15 @@ import ChatBotInvite from "./components/ChatBotInvite";
 import Certification from "./components/Certification";
 import CEHSlugPage from './pages/certification/certified-ethical-hacker';
 import JobFormPage from './components/JobFormPage';
+import ComptiaSecurityPlusSlugPage from './pages/certification/comptia-security-plus';
+import CISSPSlugPage from './pages/certification/cissp';
+import CISMSlugPage from './pages/certification/cism';
+import OSCPSlugPage from './pages/certification/oscp';
+import GSECSlugPage from './pages/certification/giac-security-essentials';
+import CISASlugPage from './pages/certification/cisa';
+import CCSPSlugPage from './pages/certification/ccsp';
+import CyberOpsSlugPage from './pages/certification/cisco-cyberops-associate';
+import ECSASlugPage from './pages/certification/ecsa';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -62,6 +71,15 @@ function App() {
             <Route path="/courses/ethical-hacking-fundamentals" element={<EthicalHackingFundamentals />} />
             {/* Certifications */}
             <Route path="/certification/certified-ethical-hacker" element={<CEHSlugPage />} />
+            <Route path="/certification/comptia-security-plus" element={<ComptiaSecurityPlusSlugPage />} />
+            <Route path="/certification/cissp" element={<CISSPSlugPage />} />
+            <Route path="/certification/cism" element={<CISMSlugPage />} />
+            <Route path="/certification/oscp" element={<OSCPSlugPage/>} />
+            <Route path="/certification/giac-security-essentials" element={<GSECSlugPage/>} />
+            <Route path="/certification/cisa" element={<CISASlugPage/>} />
+            <Route path="/certification/ccsp" element={<CCSPSlugPage/>} />
+            <Route path="/certification/cisco-cyberops-associate" element={<CyberOpsSlugPage/>} />
+            <Route path="/certification/ecsa" element={<ECSASlugPage/>} />
 
           </Routes>
          

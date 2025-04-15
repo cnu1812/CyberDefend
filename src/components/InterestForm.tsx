@@ -12,8 +12,14 @@ const courseOptions = [
 const certOptions = [
   "Certified Ethical Hacker (CEH)",
   "CompTIA Security+",
-  "CISSP",
-  "CISM",
+  "Certified Information Systems Security Professional (CISSP)",
+  "Certified Information Security Manager (CISM)",
+  "GIAC Security Essentials (GSEC)",
+  "Offensive Security Certified Professional (OSCP)",
+  "Certified Information Systems Auditor (CISA)",
+  "Certified Cloud Security Professional (CCSP)",
+  "Cisco Certified CyberOps Associate",
+  "EC-Council Certified Security Analyst (ECSA)"
 ];
 
 const InterestForm: React.FC = () => {

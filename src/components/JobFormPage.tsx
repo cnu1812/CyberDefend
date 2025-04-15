@@ -38,7 +38,7 @@ const JobFormPage = () => {
       };
   
       await fetch(
-        "https://script.google.com/macros/s/AKfycbwaOyKXJi2rvvuonMNIZXskHgeZVDRsAFe10PNPlnmR6zr6CmAp9nkca0LQ1Ol7iNiFzg/exec",
+        "https://script.google.com/macros/s/AKfycbyt19M6wS1sPztCWZzY5tkFkz8S1dBiOoNH1ljA6hKwLm4fIbHSigSxvztvFzPMzcch/exec",
         {
           method: "POST",
           mode: "no-cors", // ✅ required

@@ -51,7 +51,8 @@ const ChatBotInvite = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.4 }}
-            className="relative bg-white text-primary px-4 py-3 rounded-2xl shadow-xl text-sm font-medium max-w-xs"
+            className="relative bg-white text-primary px-4 py-3 rounded-2xl shadow-xl text-sm sm:text-sm text-xs font-medium max-w-[90vw] sm:max-w-xs"
+
           >
             <button
               onClick={() => setClosedType(currentType)}
