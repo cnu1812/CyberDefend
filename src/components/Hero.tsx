@@ -8,7 +8,7 @@ import AnimationSVG from "../images/ani.svg"; // make sure this path matches you
 
 const Hero = () => {
   const openCalendly = () => {
-    window.open("https://calendly.com/cnu1812", "_blank"); 
+    window.open("https://calendly.com/cyberdefend1", "_blank"); 
   };
 
   const [isHovered, setIsHovered] = useState(false);

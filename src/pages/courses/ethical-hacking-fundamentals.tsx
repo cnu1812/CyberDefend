@@ -36,11 +36,11 @@ const EthicalHackingFundamentals = () => {
         <div className="flex items-center gap-4 text-gray-400 text-sm mb-6">
           <div className="flex items-center">
             <User size={14} className="mr-1" />
-            John Smith
+            Manoj Kumar
           </div>
           <div className="flex items-center">
             <Calendar size={14} className="mr-1" />
-            March 15, 2024
+            TBA
           </div>
           <div className="flex items-center">
             <Clock size={14} className="mr-1" />
