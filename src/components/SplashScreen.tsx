@@ -129,19 +129,25 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
 
       {/* Terminal Log Simulation */}
       <div className="absolute bottom-10 left-5 text-green-400 text-xs font-mono opacity-80">
-        {Array(5)
-          .fill("")
-          .map((_, i) => (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: i * 0.5 }}
-            >
-              [SECURITY] Intrusion attempt detected at {Math.random().toFixed(2)}.{Math.random().toFixed(2)}.**
-            </motion.p>
-          ))}
-      </div>
+  {Array(5)
+    .fill("")
+    .map((_, i) => {
+      const ip = `10.${Math.floor(Math.random() * 256)}.${Math.floor(
+        Math.random() * 256
+      )}.${Math.floor(Math.random() * 256)}`;
+      return (
+        <motion.p
+          key={i}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: i * 0.5 }}
+        >
+          [SECURITY] Intrusion attempt detected at {ip}
+        </motion.p>
+      );
+    })}
+</div>
+
 
       {/* Cyberdefend Logo */}
       <motion.img

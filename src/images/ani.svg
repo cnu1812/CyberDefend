@@ -86,18 +86,21 @@
     <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="3.5s" fill="freeze"/>
   </path>
   
-  <!-- Company Name Text -->
-  <g opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="1s" begin="4s" fill="freeze"/>
-    <!-- CYBER text in light gray -->
-    <text x="180" y="380" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#E0E0E0">CYBER</text>
-    <!-- DEFEND text in gradient -->
-    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#E0E0E0"/>
-      <stop offset="100%" stop-color="#00FF9F"/>
-    </linearGradient>
-    <text x="320" y="380" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="url(#textGradient)">DEFEND</text>
-  </g>
+<!-- Company Name Text -->
+<g opacity="0">
+  <animate attributeName="opacity" from="0" to="1" dur="1s" begin="4s" fill="freeze"/>
+  <!-- Combined CYBERDEFEND text centered -->
+  <text x="250" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold">
+    <tspan fill="#E0E0E0">CYBER</tspan>
+    <tspan fill="url(#textGradient)">DEFEND</tspan>
+  </text>
+</g>
+  <defs>
+  <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#E0E0E0"/>
+    <stop offset="100%" stop-color="#00FF9F"/>
+  </linearGradient>
+</defs>
   
   <!-- Subtle Digital Particle Effect -->
   <g opacity="0.3">
