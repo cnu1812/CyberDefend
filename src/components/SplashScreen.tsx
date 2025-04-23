@@ -17,7 +17,10 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-primary z-50 overflow-hidden">
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-primary z-50 overflow-hidden"
+      aria-hidden="true" // Hide from screen readers and search bots
+    >
       {/* Cyber Grid Background */}
       <motion.div
         className="absolute inset-0 bg-grid opacity-10"
@@ -26,7 +29,7 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
       />
 
       {/* Scanning Radar Effect */}
-       <motion.div
+      <motion.div
         className="absolute w-80 h-80 md:w-96 md:h-96 border border-accent/30 rounded-full"
         animate={{ rotate: [0, 180, 360] }}
         transition={{ duration: 4, ease: "linear", repeat: Infinity }}
@@ -55,15 +58,15 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
         />
       ))}
 
-       {/* Electromagnetic Pulses */}
-       <motion.div
+      {/* Electromagnetic Pulses */}
+      <motion.div
         className="absolute w-24 h-24 bg-accent/10 rounded-full blur-lg"
         animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
         transition={{ duration: 3, repeat: Infinity }}
       />
 
       {/* Random Hex Code Sparks */}
-             {[...Array(8)].map((_, i) => (
+      {[...Array(8)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute text-accent text-sm font-mono"
@@ -84,12 +87,11 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
         </motion.div>
       ))}
 
-
       {/* Cybersecurity Intro Message */}
       <motion.div
         className="absolute top-16 text-white text-xl md:text-2xl font-bold text-center px-6"
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1, textShadow: "0px 0px 10px rgba(0, 255, 255, 0.8)" }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut", delay: 1 }}
       >
         <motion.span
@@ -127,27 +129,26 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
         transition={{ duration: 7, ease: "linear", repeat: Infinity }}
       />
 
-      {/* Terminal Log Simulation */}
+      {/* Terminal Log Simulation — visually cool, but now hidden from search */}
       <div className="absolute bottom-10 left-5 text-green-400 text-xs font-mono opacity-80">
-  {Array(5)
-    .fill("")
-    .map((_, i) => {
-      const ip = `10.${Math.floor(Math.random() * 256)}.${Math.floor(
-        Math.random() * 256
-      )}.${Math.floor(Math.random() * 256)}`;
-      return (
-        <motion.p
-          key={i}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: i * 0.5 }}
-        >
-          [SECURITY] Intrusion attempt detected at {ip}
-        </motion.p>
-      );
-    })}
-</div>
-
+        {Array(5)
+          .fill("")
+          .map((_, i) => {
+            const ip = `10.${Math.floor(Math.random() * 256)}.${Math.floor(
+              Math.random() * 256
+            )}.${Math.floor(Math.random() * 256)}`;
+            return (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: i * 0.5 }}
+              >
+                [SECURITY] Intrusion attempt detected at {ip}
+              </motion.p>
+            );
+          })}
+      </div>
 
       {/* Cyberdefend Logo */}
       <motion.img
