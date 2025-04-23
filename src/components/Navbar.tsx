@@ -217,7 +217,7 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="bg-accent text-primary px-4 py-2 rounded-md font-semibold shadow-md transition duration-200 hover:bg-opacity-90"
-              onClick={() => window.open("https://lms-link.com", "_blank")}
+              onClick={() => window.open("https://cyberdefend.nrichlearning.com", "_blank")}
             >
               Login to LMS
             </motion.button>
@@ -256,7 +256,7 @@ const Navbar = () => {
             <button
               className="w-full bg-accent text-primary mt-4 px-5 py-2 rounded-md font-semibold shadow-md transition duration-200 hover:bg-opacity-90"
               onClick={() => {
-                window.open("https://lms-link.com", "_blank");
+                window.open("https://cyberdefend.nrichlearning.com", "_blank");
                 setIsOpen(false);
               }}
             >

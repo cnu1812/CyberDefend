@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Shield, Lock, Code, CalendarCheck } from "lucide-react";
 import Typewriter from "typewriter-effect";
 import ConfettiExplosion from "react-confetti-explosion";
-import AnimationSVG from "../images/ani.svg"; // make sure this path matches your file structure
+import AnimationSVG from "../images/ani.svg"; 
 
 const Hero = () => {
   const openCalendly = () => {
@@ -86,7 +86,7 @@ const Hero = () => {
               Join our expert-led batches and become a cybersecurity pro.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="https://lms.cyberdefend.in" target="_blank" rel="noopener noreferrer">
+            <a href="https://cyberdefend.nrichlearning.com" target="_blank" rel="noopener noreferrer">
   <motion.button
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
