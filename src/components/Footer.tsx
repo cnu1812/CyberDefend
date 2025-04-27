@@ -1,6 +1,7 @@
 import React from "react";
 import { Facebook, Twitter, Linkedin, Github, ShieldAlert } from "lucide-react";
 import { motion } from "framer-motion";
+import { BsInstagram } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -54,10 +55,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
             <div className="flex space-x-6">
               {[
-                { icon: Facebook, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Github, href: "#" }
+                { icon: BsInstagram, href: "https://www.instagram.com/defendcyber" },
+                { icon: Twitter, href: "https://x.com/defend_cyber" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/cyberdefend1" },
+                { icon: Github, href: "https://github.com/cnu1812/CyberDefend" }
               ].map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}
