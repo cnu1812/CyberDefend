@@ -1,7 +1,7 @@
 import React from "react";
 import { Facebook, Twitter, Linkedin, Github, ShieldAlert } from "lucide-react";
 import { motion } from "framer-motion";
-import { BsInstagram } from "react-icons/bs";
+import { BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -56,13 +56,14 @@ const Footer = () => {
             <div className="flex space-x-6">
               {[
                 { icon: BsInstagram, href: "https://www.instagram.com/defendcyber" },
-                { icon: Twitter, href: "https://x.com/defend_cyber" },
+                { icon: BsTwitter, href: "https://x.com/defend_cyber" },
                 { icon: Linkedin, href: "https://www.linkedin.com/company/cyberdefend1" },
-                { icon: Github, href: "https://github.com/cnu1812/CyberDefend" }
+                { icon: BsGithub, href: "https://github.com/cnu1812/CyberDefend" }
               ].map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}
                   href={href}
+                  target="_blank"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                   className="text-gray-400 hover:text-accent transition duration-300"
