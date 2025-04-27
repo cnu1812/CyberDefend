@@ -23,7 +23,7 @@ const allCourses: Course[] = [
     level: "Beginner",
     category: "Cybersecurity",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
-    slug: "ethical-hacking-fundamentals",
+    slug: "cybersecurity-beginners",
   },
   {
     title: "Cybersecurity Intermediate Course",

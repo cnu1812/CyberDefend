@@ -15,7 +15,7 @@ const staticPaths = [
 
 const fetchDynamicSlugs = async () => {
   const blogs = ['ai-cybersecurity', 'cloud-security', 'ransomeware', 'zerotrust'];
-  const courses = ['ethical-hacking-fundamentals', 'intermediate-network-defense', 'advanced-ethical-hacking', 'cybersecurity-masterclass', 'cloud-security-essentials'];
+  const courses = ['cybersecurity-beginners', 'cybersecurity-intermediate-course', 'cybersecurity-masterclass'];
   const certifications = ['ccsp', 'certified-ethical-hacker', 'cisa', 'cisco-cyberops-associate', 'cism', 'cissp', 'comptia-security-plus', 'ecsa', 'giac-security-essentials', 'oscp'];
   return { blogSlugs: blogs, courseSlugs: courses, certificationSlugs: certifications };
 };
