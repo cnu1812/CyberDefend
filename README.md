@@ -6,7 +6,9 @@
 
 This project powers the official [cyberdefend.in](https://www.cyberdefend.in) website, built using **React + Vite + TailwindCSS** for speed, flexibility, and a futuristic design.
 
-[![Build Status](https://img.shields.io/netlify/cc510d50-8aa4-41fd-8fd9-430b46a73d2b?style=flat-square&logo=netlify)](https://app.netlify.com/sites/cyberdefend1/overview)
+[![Website Live](https://img.shields.io/badge/Website-cyberdefend.in-brightgreen?style=flat-square&logo=vercel)](https://www.cyberdefend.in)   [![Build Status](https://img.shields.io/netlify/cc510d50-8aa4-41fd-8fd9-430b46a73d2b?style=flat-square&logo=netlify)](https://app.netlify.com/sites/cyberdefend1/overview)
+
+
 
 ## 🚀 Running the Project Locally
 
