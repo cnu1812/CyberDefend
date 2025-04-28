@@ -1,7 +1,7 @@
 import React from "react";
 import { Facebook, Twitter, Linkedin, Github, ShieldAlert } from "lucide-react";
 import { motion } from "framer-motion";
-import { BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import { BsGithub, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -58,7 +58,8 @@ const Footer = () => {
                 { icon: BsInstagram, href: "https://www.instagram.com/defendcyber" },
                 { icon: BsTwitter, href: "https://x.com/defend_cyber" },
                 { icon: Linkedin, href: "https://www.linkedin.com/company/cyberdefend1" },
-                { icon: BsGithub, href: "https://github.com/cnu1812/CyberDefend" }
+                { icon: BsGithub, href: "https://github.com/cnu1812/CyberDefend" },
+                { icon: BsWhatsapp, href: "https://chat.whatsapp.com/LRzT7qWKvWGKlQIoElqYbF" }
               ].map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}

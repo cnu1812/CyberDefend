@@ -72,7 +72,7 @@ const ChatBotInvite = () => {
       </AnimatePresence>
 
       <motion.a
-        href="https://wa.me/your-whatsapp-group-link"
+        href="https://chat.whatsapp.com/LRzT7qWKvWGKlQIoElqYbF"
         target="_blank"
         rel="noopener noreferrer"
         animate={
