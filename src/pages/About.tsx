@@ -2,8 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Users, Award, Target } from "lucide-react";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
-import cofo1 from "../images/cofo1.png";
-import cofo3 from "../images/cofo3.jpeg";
 
 
 const About = () => {
@@ -11,7 +9,7 @@ const About = () => {
     {
       name: "V Sreenivas",
       role: "Co-Founder and CTO",
-      image: cofo1,
+      image: "/images/cofo1.png",
       description: "Leading strategy, operations, and outreach.",
       socials: {
         linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
@@ -32,7 +30,7 @@ const About = () => {
     {
       name: "G Amrutha",
       role: "Co-Founder and CIO",
-      image: cofo3,
+      image: "/images/cofo3.jpeg",
       description: "Focusing on content, community, and technical excellence.",
       socials: {
         linkedin: "https://www.linkedin.com/in/third-cofounder/",
