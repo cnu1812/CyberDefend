@@ -9,7 +9,7 @@ const About = () => {
     {
       name: "V Sreenivas",
       role: "Co-Founder and CTO",
-      image: "public/images/cofo1.png",
+      image: "https://private-user-images.githubusercontent.com/75531528/438939255-7ba357b8-0192-4996-9532-92aabcd1d993.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDU5NTQyMDAsIm5iZiI6MTc0NTk1MzkwMCwicGF0aCI6Ii83NTUzMTUyOC80Mzg5MzkyNTUtN2JhMzU3YjgtMDE5Mi00OTk2LTk1MzItOTJhYWJjZDFkOTkzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDI5VDE5MTE0MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU0YjA3OTg5MTA2OWQ4OWRkZDQyYjBmOTBhZGY5NzM1ZjViMjExMTY3MDg1MWNkMzNjYjc0ZmY1NzZjOGUwMDgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.JVODPH1xIaB0leYPKBRhxqBaNFbsA3LtIW33wSbyS-s",
       description: "Leading strategy, operations, and outreach.",
       socials: {
         linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
@@ -30,7 +30,7 @@ const About = () => {
     {
       name: "G Amrutha",
       role: "Co-Founder and CIO",
-      image: "public/images/cofo3.jpeg",
+      image: "https://private-user-images.githubusercontent.com/75531528/438939291-f1163e15-9530-4e0f-97be-34795f8a555e.jpeg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDU5NTQyMDAsIm5iZiI6MTc0NTk1MzkwMCwicGF0aCI6Ii83NTUzMTUyOC80Mzg5MzkyOTEtZjExNjNlMTUtOTUzMC00ZTBmLTk3YmUtMzQ3OTVmOGE1NTVlLmpwZWc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDI5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQyOVQxOTExNDBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03ZWQyZTA4NmY1NzUxNmZkM2YwZTE4ZjlkOTIzOTAxZDlkMjcyMWIwOTJlYjNkZDYwYTkwODg5NjM4MzZmZDJiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.cIcHgHtylJkvcqBBcPFLHpmriAnA80cxqRvbqwEyjGY",
       description: "Focusing on content, community, and technical excellence.",
       socials: {
         linkedin: "https://www.linkedin.com/in/third-cofounder/",
