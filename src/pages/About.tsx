@@ -9,7 +9,7 @@ const About = () => {
     {
       name: "V Sreenivas",
       role: "Co-Founder and CTO",
-      image: "/images/cofo1.png",
+      image: "public/images/cofo1.png",
       description: "Leading strategy, operations, and outreach.",
       socials: {
         linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
@@ -30,7 +30,7 @@ const About = () => {
     {
       name: "G Amrutha",
       role: "Co-Founder and CIO",
-      image: "/images/cofo3.jpeg",
+      image: "public/images/cofo3.jpeg",
       description: "Focusing on content, community, and technical excellence.",
       socials: {
         linkedin: "https://www.linkedin.com/in/third-cofounder/",
