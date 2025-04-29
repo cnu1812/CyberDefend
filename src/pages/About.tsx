@@ -29,7 +29,7 @@ const About = () => {
     {
       name: "G Amrutha",
       role: "Co-Founder",
-      image: "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-fd7c-51f7-9748-dedca6cca804/raw?se=2025-04-29T07%3A22%3A32Z&sp=r&sv=2024-08-04&sr=b&scid=5800b4ce-5ba4-50cc-bd35-3b8272759b47&skoid=ac1d63ad-0c69-4017-8785-7a50eb04382c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-29T03%3A10%3A17Z&ske=2025-04-30T03%3A10%3A17Z&sks=b&skv=2024-08-04&sig=GasykgFtjcDbdw9WS59oVzZif8gGFtKQ%2BBR2mKDZqqk%3D",
+      image: "https://media.licdn.com/dms/image/v2/D5622AQFc1uL2SggkzQ/feedshare-shrink_800/B56ZX7tbVyHoAo-/0/1743684745212?e=1749081600&v=beta&t=7AQrEXDJG2E0K88QZlt41Cm7otWIaOcwXudoGUMMzHw",
       description: "Focusing on content, community, and technical excellence.",
       socials: {
         linkedin: "https://www.linkedin.com/in/third-cofounder/",
