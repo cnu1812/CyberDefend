@@ -7,8 +7,8 @@ const About = () => {
   const coFounders = [
     {
       name: "V Sreenivas",
-      role: "Co-Founder",
-      image: "https://avatars.githubusercontent.com/u/75531528?v=4",
+      role: "Co-Founder and CTO",
+      image: "src/images/cofo1.png",
       description: "Leading strategy, operations, and outreach.",
       socials: {
         linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
@@ -18,18 +18,18 @@ const About = () => {
     },
     {
       name: "Manoj Kumar",
-      role: "Co-Founder",
+      role: "Founder",
       image: "https://media.licdn.com/dms/image/v2/D4D03AQG6m8Glfb1IHQ/profile-displayphoto-shrink_400_400/B4DZWucRVkHkAk-/0/1742388402040?e=1749686400&v=beta&t=OcvhvcAbW3UtF-aDEMP9Bf6GGK-VwaDH_V9k6bQEHG0",
       description: "Driving vision and product innovation at CyberDefend.",
       socials: {
         linkedin: "https://www.linkedin.com/in/manoj-kumar-797977241/",
-        twitter: "https://twitter.com/manojkumar",
+        
       },
     },
     {
       name: "G Amrutha",
-      role: "Co-Founder",
-      image: "https://media.licdn.com/dms/image/v2/D5622AQFc1uL2SggkzQ/feedshare-shrink_800/B56ZX7tbVyHoAo-/0/1743684745212?e=1749081600&v=beta&t=7AQrEXDJG2E0K88QZlt41Cm7otWIaOcwXudoGUMMzHw",
+      role: "Co-Founder and CIO",
+      image: "src/images/cofo3.jpeg",
       description: "Focusing on content, community, and technical excellence.",
       socials: {
         linkedin: "https://www.linkedin.com/in/third-cofounder/",
@@ -149,7 +149,7 @@ const About = () => {
                 <img
   src={member.image}
   alt={member.name}
-  className="w-[400px] h-[400px] object-cover rounded-lg mx-auto mb-4 max-w-full"
+  className="w-[400px] h-[500px] object-cover rounded-lg mx-auto mb-4 max-w-full"
 />
 
                 </div>
