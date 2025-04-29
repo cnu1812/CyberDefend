@@ -13,6 +13,7 @@ const About = () => {
       socials: {
         linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
         twitter: "https://twitter.com/cnu1812",
+        github: "https://github.com/cnu1812",
       },
     },
     {
@@ -23,6 +24,16 @@ const About = () => {
       socials: {
         linkedin: "https://www.linkedin.com/in/manoj-kumar-797977241/",
         twitter: "https://twitter.com/manojkumar",
+      },
+    },
+    {
+      name: "G Amrutha",
+      role: "Co-Founder",
+      image: "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-fd7c-51f7-9748-dedca6cca804/raw?se=2025-04-29T07%3A22%3A32Z&sp=r&sv=2024-08-04&sr=b&scid=5800b4ce-5ba4-50cc-bd35-3b8272759b47&skoid=ac1d63ad-0c69-4017-8785-7a50eb04382c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-29T03%3A10%3A17Z&ske=2025-04-30T03%3A10%3A17Z&sks=b&skv=2024-08-04&sig=GasykgFtjcDbdw9WS59oVzZif8gGFtKQ%2BBR2mKDZqqk%3D",
+      description: "Focusing on content, community, and technical excellence.",
+      socials: {
+        linkedin: "https://www.linkedin.com/in/third-cofounder/",
+        github: "https://github.com/thirdcofounder",
       },
     },
   ];
@@ -126,7 +137,7 @@ const About = () => {
         {/* Our Team */}
         <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
           <h2 className="text-3xl font-bold mb-8 text-center slide-in">Meet the Founders</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {coFounders.map((member, index) => (
               <motion.div
                 key={index}
@@ -134,22 +145,33 @@ const About = () => {
                 transition={{ duration: 0.3 }}
                 className="bg-darkBg p-6 rounded-lg shadow-lg hover:shadow-accent/30 transition-all duration-300"
               >
+                <div className="w-full aspect-w-4 aspect-h-3 mb-4">
                 <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-56 object-cover rounded-lg mb-4"
-                />
+  src={member.image}
+  alt={member.name}
+  className="w-[400px] h-[400px] object-cover rounded-lg mx-auto mb-4 max-w-full"
+/>
+
+                </div>
                 <h3 className="text-white font-bold text-xl mb-2">{member.name}</h3>
                 <p className="text-accent text-sm font-semibold mb-2">{member.role}</p>
                 <p className="text-gray-400 mb-4">{member.description}</p>
                 <div className="flex gap-4">
-                  <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className="text-white hover:text-accent transition" />
-                  </a>
-                  <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer">
-                    <FaTwitter className="text-white hover:text-accent transition" />
-                  </a>
-                  
+                  {member.socials.linkedin && (
+                    <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer">
+                      <FaLinkedin className="text-white hover:text-accent transition" />
+                    </a>
+                  )}
+                  {member.socials.twitter && (
+                    <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer">
+                      <FaTwitter className="text-white hover:text-accent transition" />
+                    </a>
+                  )}
+                  {member.socials.github && (
+                    <a href={member.socials.github} target="_blank" rel="noopener noreferrer">
+                      <FaGithub className="text-white hover:text-accent transition" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}

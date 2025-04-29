@@ -1,11 +1,13 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Shield, Lock, Code, CalendarCheck } from "lucide-react";
 import Typewriter from "typewriter-effect";
 import ConfettiExplosion from "react-confetti-explosion";
 import AnimationSVG from "../images/ani.svg"; 
+import twemoji from 'twemoji';
 
+  
 const Hero = () => {
   const openCalendly = () => {
     window.open("https://calendly.com/cyberdefend1", "_blank"); 
