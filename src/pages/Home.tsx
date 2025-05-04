@@ -6,6 +6,7 @@ import Testimonials from '../components/Testimonials';
 import Collaborate from '../components/Collaborate'; 
 import VideoGallery from '../components/VideoGallery';
 import TrialOfferCard from '../components/TrialOfferCard';
+import Socials from '../components/Socials';
 
 
 
@@ -18,6 +19,7 @@ const Home = () => {
       <Features />
       <CourseSlider />
       <VideoGallery />
+      <Socials />
       <Testimonials />
       <Collaborate/>
       
