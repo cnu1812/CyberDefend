@@ -32,6 +32,7 @@ import CyberSecurityBeginner from './pages/courses/cybersecurity-beginners';
 import CybersecurityIntermediateCourse from './pages/courses/cybersecurity-intermediate-course';
 import CybersecurityMasterclass from './pages/courses/cybersecurity-masterclass';
 
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -42,7 +43,7 @@ function App() {
   }, []);
 
   return (
-    <HelmetProvider> {/* Wrap your entire app with HelmetProvider */}
+    <HelmetProvider> 
       <Router>
         {loading ? (
           <SplashScreen onFinish={function (): void {
@@ -51,7 +52,9 @@ function App() {
         ) : (
           <div className="min-h-screen bg-primary">
             <Toaster position="top-center" reverseOrder={false} />
+            
             <Navbar />
+            
             <Routes>
               {/* Homepage */}
               <Route path="/" element={<Home />} />
@@ -85,6 +88,8 @@ function App() {
               <Route path="/certification/ecsa" element={<ECSASlugPage/>} />
 
             </Routes>
+            
+            
 
             <Footer />
             <ChatBotInvite />

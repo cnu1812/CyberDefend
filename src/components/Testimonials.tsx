@@ -9,6 +9,9 @@ type Testimonial = {
   image: string;
   feedback: string;
   rating: number;
+  linkedin?: string;
+  twitter?: string;
+  github?: string;
 };
 
 const testimonials: Testimonial[] = [
@@ -19,6 +22,9 @@ const testimonials: Testimonial[] = [
     feedback:
       "CyberDefend's courses were a game-changer! The hands-on labs and expert guidance helped me land my first cybersecurity job.",
     rating: 5,
+    linkedin: "https://linkedin.com/in/alicejohnson",
+    twitter: "https://twitter.com/alicejohnsec",
+    github: "https://github.com/alicejohnson",
   },
   {
     name: "David Kim",
@@ -27,6 +33,8 @@ const testimonials: Testimonial[] = [
     feedback:
       "The real-world scenarios and challenges prepared me for my CEH certification. Absolutely worth it!",
     rating: 5,
+    linkedin: "https://linkedin.com/in/davidkim",
+    github: "https://github.com/davidkimsec",
   },
   {
     name: "Sophia Patel",
@@ -35,6 +43,8 @@ const testimonials: Testimonial[] = [
     feedback:
       "I loved the detailed cloud security module. The instructors provided clear explanations and in-depth practicals.",
     rating: 4,
+    linkedin: "https://linkedin.com/in/sophiapatel",
+    twitter: "https://twitter.com/sophiasec",
   },
 ];
 
@@ -76,20 +86,24 @@ const Testimonials: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={cardVariant}
-              className="bg-darkBg p-6 rounded-2xl shadow-lg hover:shadow-accent/30 transition-transform duration-300 hover:-translate-y-2"
+              className="relative bg-darkBg/60 backdrop-blur-md border border-accent/10 p-6 rounded-3xl shadow-xl hover:shadow-accent/30 transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
             >
-              <div className="flex flex-col items-center text-center">
+              {/* Glow Background */}
+              <div className="absolute -inset-0.5 bg-gradient-to-br from-accent/30 to-transparent blur-lg opacity-30 group-hover:opacity-60 transition duration-500 rounded-3xl" />
+
+              <div className="relative z-10 flex flex-col items-center text-center">
                 <motion.img
                   initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.4 }}
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-accent shadow-md"
+                  className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-accent shadow-md group-hover:scale-105 transition"
                 />
                 <h3 className="text-xl font-bold">{testimonial.name}</h3>
                 <p className="text-accent text-sm">{testimonial.role}</p>
 
+                {/* Rating Stars */}
                 <motion.div
                   className="flex mt-2 text-yellow-400"
                   initial={{ scale: 0 }}
@@ -101,14 +115,53 @@ const Testimonials: React.FC = () => {
                   ))}
                 </motion.div>
 
+                {/* Feedback */}
                 <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6 }}
-                  className="text-gray-300 mt-4 text-sm leading-relaxed"
+                  className="text-gray-300 mt-4 text-sm leading-relaxed italic px-2"
                 >
                   “{testimonial.feedback}”
                 </motion.p>
+
+           {/* Social Links */}
+<motion.div
+  initial={{ opacity: 0, y: 10 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4, duration: 0.5 }}
+  className="flex gap-4 mt-4"
+>
+  {testimonial.linkedin && (
+    <a href={testimonial.linkedin} target="_blank" rel="noopener noreferrer">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+        alt="LinkedIn"
+        className="w-5 h-5 hover:scale-125 transition"
+      />
+    </a>
+  )}
+  {testimonial.twitter && (
+    <a href={testimonial.twitter} target="_blank" rel="noopener noreferrer">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg"
+        alt="Twitter"
+        className="w-5 h-5 hover:scale-125 transition filter brightness-0 invert"
+      />
+    </a>
+  )}
+  {testimonial.github && (
+    <a href={testimonial.github} target="_blank" rel="noopener noreferrer">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+        alt="GitHub"
+        className="w-5 h-5 hover:scale-125 transition filter brightness-0 invert"
+      />
+    </a>
+  )}
+</motion.div>
+
+
               </div>
             </motion.div>
           ))}

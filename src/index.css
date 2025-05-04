@@ -39,4 +39,39 @@
   .confetti-container {
     z-index: 1000;
   }
+
+  .neon-glow {
+    color: #aefeff;
+    text-shadow:
+      0 0 2px #aefeff,
+      0 0 4px #7de9f2,
+      0 0 6px #5ed3e0;
+    transition: text-shadow 0.3s ease, transform 0.3s ease;
+    animation: subtlePulse 3s ease-in-out infinite alternate;
+  }
+  
+  .neon-glow:hover {
+    text-shadow:
+      0 0 3px #aefeff,
+      0 0 6px #7de9f2,
+      0 0 10px #5ed3e0;
+    transform: scale(1.01);
+  }
+  
+  @keyframes subtlePulse {
+    0% {
+      text-shadow:
+        0 0 2px #aefeff,
+        0 0 4px #7de9f2,
+        0 0 6px #5ed3e0;
+    }
+    100% {
+      text-shadow:
+        0 0 3px #aefeff,
+        0 0 6px #7de9f2,
+        0 0 10px #5ed3e0;
+    }
+  }
+  
+  
   

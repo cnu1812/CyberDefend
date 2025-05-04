@@ -13,7 +13,9 @@ export default {
         'slide-up': 'slideUp 0.5s ease-out',
         'slide-down': 'slideDown 0.5s ease-out',
         'slide-left': 'slideLeft 0.5s ease-out',
-        'slide-right': 'slideRight 0.5s ease-out'
+        'slide-right': 'slideRight 0.5s ease-out',
+        scroll: 'scroll 20s linear infinite',
+        'scroll-slow': 'scroll 80s linear infinite',
       },
       keyframes: {
         slideUp: {
@@ -31,6 +33,10 @@ export default {
         slideRight: {
           '0%': { transform: 'translateX(-100%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' }
+        },
+        scroll: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' }
         }
       }
     }
