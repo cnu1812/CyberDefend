@@ -33,8 +33,8 @@ const About = () => {
       image: "https://github.com/user-attachments/assets/63bb1f7b-7be2-40b9-b0f2-4a338dac0f35",
       description: "Focusing on content, community, and technical excellence.",
       socials: {
-        linkedin: "https://www.linkedin.com/in/third-cofounder/",
-        github: "https://github.com/thirdcofounder",
+        linkedin: "https://www.linkedin.com/in/ghowli-amrutha-6494a2245/",
+        
       },
     },
   ];

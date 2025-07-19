@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 type Testimonial = {
   name: string;
-  role: string;
+  company: string;
   image: string;
   feedback: string;
   rating: number;
@@ -16,35 +16,35 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Alice Johnson",
-    role: "Cybersecurity Analyst",
-    image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe",
+    name: "Abhijeet Singh",
+    company: "HCL",
+    image: "https://github.com/user-attachments/assets/12be74e0-e94e-4b97-81a6-d17a754d2417",
     feedback:
-      "CyberDefend's courses were a game-changer! The hands-on labs and expert guidance helped me land my first cybersecurity job.",
+      "As most of my experince was in Europe working in different IT domains, I had to move back to India for parents and I was left out with no job. One of my colleague who has got job got training from Manoj Kumar Sir, and enrolled from Cyberdefend to start my cybersecurity Journey. Now I have got placed in HCL with 20+ package with guidance from Cyberdefend",
     rating: 5,
-    linkedin: "https://linkedin.com/in/alicejohnson",
-    twitter: "https://twitter.com/alicejohnsec",
-    github: "https://github.com/alicejohnson",
+   // linkedin: "https://linkedin.com/in/alicejohnson",
+   // twitter: "https://twitter.com/alicejohnsec",
+   // github: "https://github.com/alicejohnson",
   },
   {
-    name: "David Kim",
-    role: "Ethical Hacker",
-    image: "https://images.unsplash.com/photo-1525357816819-392d2383f351",
+    name: "Banoth Meenakshi ",
+    company: "Optiv",
+    image: "https://github.com/user-attachments/assets/52b37788-d27b-44c4-a2c9-f677bc035b4a",
     feedback:
-      "The real-world scenarios and challenges prepared me for my CEH certification. Absolutely worth it!",
+      "I’m happy to say the cyberdefend team helped me to start my cybersecurity career into Security Operations Center (SOC) especially the way Manoj Kumar Sir teaches is impressive. I’m happy to refer you folks cyberdefend to kick start your cybersecurity Journey",
     rating: 5,
-    linkedin: "https://linkedin.com/in/davidkim",
-    github: "https://github.com/davidkimsec",
+    linkedin: "www.linkedin.com/in/meenakshi-banoth-2a7419351/",
+    
   },
   {
-    name: "Sophia Patel",
-    role: "Cloud Security Engineer",
+    name: "⁠krishna Vamshi",
+    company: "TCS",
     image: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c",
     feedback:
-      "I loved the detailed cloud security module. The instructors provided clear explanations and in-depth practicals.",
-    rating: 4,
-    linkedin: "https://linkedin.com/in/sophiapatel",
-    twitter: "https://twitter.com/sophiasec",
+      " I got training from somewhere else in cybersecurity and that wasn’t enough to crack my job. Got to hear from some of my friends about cyberdefend and within a month they have helped me to get a job in TCS working for incident Response, Kudos - Manoj Sir, Thanks for all of your support. Good Luck CyberDefend",
+    rating: 5,
+   // linkedin: "https://linkedin.com/in/sophiapatel",
+   // twitter: "https://twitter.com/sophiasec",
   },
 ];
 
@@ -101,7 +101,7 @@ const Testimonials: React.FC = () => {
                   className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-accent shadow-md group-hover:scale-105 transition"
                 />
                 <h3 className="text-xl font-bold">{testimonial.name}</h3>
-                <p className="text-accent text-sm">{testimonial.role}</p>
+                <p className="text-accent text-sm">{testimonial.company}</p>
 
                 {/* Rating Stars */}
                 <motion.div
