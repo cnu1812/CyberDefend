@@ -2,25 +2,6 @@
   <!-- Background -->
   <rect width="500" height="500" fill="#0A192F" rx="20" ry="20"/>
   
-  <!-- Shield Icon at the top -->
-  <g transform="translate(250, 110) scale(0.8)" opacity="0">
-    <animate attributeName="opacity" from="0" to="1" dur="1s" begin="4.5s" fill="freeze"/>
-    <!-- Shield Outline -->
-    <circle cx="0" cy="0" r="50" fill="#121212" stroke="#00FF9F" stroke-width="3"/>
-    <!-- Dashed Yellow Circle -->
-    <circle cx="0" cy="0" r="42" fill="transparent" stroke="#FFD100" stroke-width="2" stroke-dasharray="5,3"/>
-    <!-- Shield Icon -->
-    <path d="M0,-20 L-20,0 L0,25 L20,0 Z" fill="transparent" stroke="#00FF9F" stroke-width="2"/>
-    <!-- Lock Icon -->
-    <rect x="-7" y="0" width="14" height="12" fill="#00FF9F" rx="2" ry="2"/>
-    <rect x="-5" y="-5" width="10" height="8" fill="transparent" stroke="#00FF9F" stroke-width="2" rx="1" ry="1"/>
-    <!-- Data Icons -->
-    <rect x="-15" y="-12" width="15" height="5" fill="transparent" stroke="#00FF9F" stroke-width="1.5" rx="1" ry="1"/>
-    <rect x="-15" y="-5" width="10" height="5" fill="transparent" stroke="#00FF9F" stroke-width="1.5" rx="1" ry="1"/>
-    <!-- Refresh Icon -->
-    <circle cx="15" cy="5" r="7" fill="transparent" stroke="#00FF9F" stroke-width="1.5"/>
-    <path d="M12,5 L15,7 L18,5" fill="transparent" stroke="#00FF9F" stroke-width="1.5"/>
-  </g>
   
   <!-- CD Infinity Symbol -->
   <!-- Left C part -->

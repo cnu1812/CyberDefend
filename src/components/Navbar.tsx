@@ -36,7 +36,7 @@ const Navbar = () => {
       {/* Background */}
       <rect width="500" height="500" fill="#0A192F" rx="20" ry="20" />
 
-      {/* Shield Icon */}
+      {/* Shield Icon
       <g transform="translate(250, 110) scale(0.8)" opacity="0">
         <animate attributeName="opacity" from="0" to="1" dur="1s" begin="4.5s" fill="freeze" />
         <circle cx="0" cy="0" r="50" fill="#121212" stroke="#00FF9F" strokeWidth="3" />
@@ -86,7 +86,7 @@ const Navbar = () => {
         />
         <circle cx="15" cy="5" r="7" fill="transparent" stroke="#00FF9F" strokeWidth="1.5" />
         <path d="M12,5 L15,7 L18,5" fill="transparent" stroke="#00FF9F" strokeWidth="1.5" />
-      </g>
+      </g> */}
 
       {/* CD Infinity Symbol and Animated Paths */}
       <path
