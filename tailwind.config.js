@@ -4,10 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0A192F',
-        accent: '#00FF9F',
+        primary: '#0A192F',    // Deep Navy
+        accent: '#00FF9F',     // Neon Green
         lightGray: '#E0E0E0',
-        darkBg: '#121212'
+        darkBg: '#121212',
+        danger: '#FF2E54',     // <--- ADDED: For crossing out market prices
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'], // <--- ADDED: For terminal text
       },
       animation: {
         'slide-up': 'slideUp 0.5s ease-out',
@@ -16,8 +21,17 @@ export default {
         'slide-right': 'slideRight 0.5s ease-out',
         scroll: 'scroll 20s linear infinite',
         'scroll-slow': 'scroll 80s linear infinite',
+        'glitch': 'glitch 1s linear infinite', // <--- ADDED
       },
       keyframes: {
+        // ... (Keep your existing keyframes: slideUp, slideDown, etc.) ...
+        
+        // <--- ADD THIS GLITCH KEYFRAME
+        glitch: {
+          '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+          '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+          '62%': { transform: 'translate(0,0) skew(5deg)' },
+        },
         slideUp: {
           '0%': { transform: 'translateY(100%)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' }

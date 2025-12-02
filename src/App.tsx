@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from "react-hot-toast";
-import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
+import { HelmetProvider } from 'react-helmet-async'; 
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
@@ -31,6 +31,8 @@ import ECSASlugPage from './pages/certification/ecsa';
 import CyberSecurityBeginner from './pages/courses/cybersecurity-beginners';
 import CybersecurityIntermediateCourse from './pages/courses/cybersecurity-intermediate-course';
 import CybersecurityMasterclass from './pages/courses/cybersecurity-masterclass';
+import AcademyTerminal from './components/AcademyTerminal';
+import LiveEvents from './components/LiveEvents';
 
 
 function App() {
@@ -93,6 +95,8 @@ function App() {
 
             <Footer />
             <ChatBotInvite />
+            <AcademyTerminal />
+            <LiveEvents />
           </div>
         )}
       </Router>
