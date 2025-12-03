@@ -13,6 +13,7 @@ import CurriculumTree from '../components/CurriculumTree';
 import TheGatekeeper from '../components/TheGatekeeper';
 import GlobalThreatMap from '../components/GlobalThreatMap';
 import ROICalculator from '../components/ROICalculator';
+import CertificatePreview from '../components/CertificatePreview';
 
 
 
@@ -28,6 +29,7 @@ const Home = () => {
       <ROICalculator />
       <CurriculumTree />
       <CourseSlider />
+      <CertificatePreview />
       <GlobalThreatMap />
       <VideoGallery />
       <Socials />

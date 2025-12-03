@@ -33,7 +33,8 @@ import CybersecurityIntermediateCourse from './pages/courses/cybersecurity-inter
 import CybersecurityMasterclass from './pages/courses/cybersecurity-masterclass';
 import AcademyTerminal from './components/AcademyTerminal';
 import LiveEvents from './components/LiveEvents';
-
+import SmoothScroll from './components/SmoothScroll'; 
+import CyberScrollbar from './components/CyberScrollbar';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -47,12 +48,14 @@ function App() {
   return (
     <HelmetProvider> 
       <Router>
+      <SmoothScroll />
         {loading ? (
           <SplashScreen onFinish={function (): void {
             throw new Error('Function not implemented.');
           } } />
         ) : (
           <div className="min-h-screen bg-primary">
+            <CyberScrollbar />
             <Toaster position="top-center" reverseOrder={false} />
             
             <Navbar />

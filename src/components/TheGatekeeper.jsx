@@ -212,7 +212,7 @@ const TheGatekeeper = () => {
                             placeholder="ENTER_FLAG_HERE"
                             className="bg-transparent border-none outline-none text-white w-full font-mono placeholder:text-gray-700 text-lg uppercase"
                             autoComplete="off"
-                            autoFocus
+                            // autoFocus
                           />
                         </div>
                         

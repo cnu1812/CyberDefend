@@ -72,6 +72,17 @@
         0 0 10px #5ed3e0;
     }
   }
+
+  /* Hide default scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide default scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
   
   
   
