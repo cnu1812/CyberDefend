@@ -9,7 +9,7 @@ const About = () => {
     {
       name: "V Sreenivas",
       role: "Co-Founder and CTO",
-      image: "https://github.com/user-attachments/assets/b11eb55f-5fba-4bf0-975b-fdcff186c12e",
+      image: "https://github.com/user-attachments/assets/0932b7c7-a910-4105-b2e7-51c1bb9297a2",
       description: "Leading strategy, operations, and outreach.",
       socials: {
         linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
