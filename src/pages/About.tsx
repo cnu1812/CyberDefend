@@ -20,7 +20,7 @@ const About = () => {
     {
       name: "Manoj Kumar",
       role: "Founder",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQG6m8Glfb1IHQ/profile-displayphoto-shrink_400_400/B4DZWucRVkHkAk-/0/1742388402040?e=1749686400&v=beta&t=OcvhvcAbW3UtF-aDEMP9Bf6GGK-VwaDH_V9k6bQEHG0",
+      image: "https://github.com/user-attachments/assets/f4d31d84-a348-45a9-b1af-bb3f7c6e0726",
       description: "Driving vision and product innovation at CyberDefend.",
       socials: {
         linkedin: "https://www.linkedin.com/in/manoj-kumar-797977241/",
