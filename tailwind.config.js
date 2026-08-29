@@ -4,15 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0A192F',    // Deep Navy
-        accent: '#00FF9F',     // Neon Green
-        lightGray: '#E0E0E0',
-        darkBg: '#121212',
-        danger: '#FF2E54',     // <--- ADDED: For crossing out market prices
+        primary: '#070C18',    // Ultra Deep Cyber Obsidian
+        primaryLight: '#0D1629', // Deep Slate
+        accent: '#00FF9F',     // Neon Matrix Green
+        cyberCyan: '#00E5FF',  // Electric Cyber Cyan
+        cyberBlue: '#0070F3',  // Tech Blue
+        cyberPurple: '#9D4EDD', // Neon Violet
+        lightGray: '#E2E8F0',
+        darkBg: '#050811',     // Pitch Black Surface
+        darkSurface: '#0B1222', // Glass Card Surface
+        danger: '#FF2E54',     // Crimson Alert
+        warning: '#FFB800',    // Warning Amber
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'], // <--- ADDED: For terminal text
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
       },
       animation: {
         'slide-up': 'slideUp 0.5s ease-out',
@@ -21,16 +27,24 @@ export default {
         'slide-right': 'slideRight 0.5s ease-out',
         scroll: 'scroll 20s linear infinite',
         'scroll-slow': 'scroll 80s linear infinite',
-        'glitch': 'glitch 1s linear infinite', // <--- ADDED
+        'glitch': 'glitch 1s linear infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'radar-sweep': 'radarSweep 4s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
       },
       keyframes: {
-        // ... (Keep your existing keyframes: slideUp, slideDown, etc.) ...
-        
-        // <--- ADD THIS GLITCH KEYFRAME
         glitch: {
           '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
           '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
           '62%': { transform: 'translate(0,0) skew(5deg)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        radarSweep: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
         slideUp: {
           '0%': { transform: 'translateY(100%)', opacity: '0' },

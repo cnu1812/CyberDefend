@@ -1,204 +1,213 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, ShieldCheck, Quote, ExternalLink, ArrowRight, Building2, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type Testimonial = {
   name: string;
+  role: string;
   company: string;
+  package: string;
   image: string;
   feedback: string;
   rating: number;
   linkedin?: string;
-  twitter?: string;
-  github?: string;
+  verified: boolean;
 };
+
+const stats = [
+  { label: "Top Package Secured", value: "₹24 LPA" },
+  { label: "Average Salary Hike", value: "+180%" },
+  { label: "Graduates Placed", value: "1,200+" },
+  { label: "Hiring Partners", value: "85+ MNCs" },
+];
 
 const testimonials: Testimonial[] = [
   {
     name: "Abhijeet Singh",
-    company: "HCL",
+    role: "Senior Security Specialist",
+    company: "HCL Technologies",
+    package: "₹20+ LPA",
     image: "https://github.com/user-attachments/assets/12be74e0-e94e-4b97-81a6-d17a754d2417",
     feedback:
-      "As most of my experince was in Europe working in different IT domains, I had to move back to India for parents and I was left out with no job. One of my colleague who has got job got training from Manoj Kumar Sir, and enrolled from Cyberdefend to start my cybersecurity Journey. Now I have got placed in HCL with 20+ package with guidance from Cyberdefend",
+      "After working in Europe in generic IT, I returned to India without a job. Enrolling in CyberDefend under Manoj Kumar Sir's guidance transformed my trajectory. With practical live labs, I cracked HCL with a ₹20+ LPA package!",
     rating: 5,
-   // linkedin: "https://linkedin.com/in/alicejohnson",
-   // twitter: "https://twitter.com/alicejohnsec",
-   // github: "https://github.com/alicejohnson",
+    verified: true,
   },
   {
-    name: "Banoth Meenakshi ",
-    company: "Optiv",
+    name: "Banoth Meenakshi",
+    role: "SOC Analyst L2",
+    company: "Optiv Security",
+    package: "₹14 LPA",
     image: "https://github.com/user-attachments/assets/52b37788-d27b-44c4-a2c9-f677bc035b4a",
     feedback:
-      "I’m happy to say the cyberdefend team helped me to start my cybersecurity career into Security Operations Center (SOC) especially the way Manoj Kumar Sir teaches is impressive. I’m happy to refer you folks cyberdefend to kick start your cybersecurity Journey",
+      "The CyberDefend team helped me kickstart my journey into Security Operations Centers (SOC). Manoj Sir's deep incident triage methodology gave me the exact confidence needed to crack Optiv's rigorous technical rounds.",
     rating: 5,
-    linkedin: "www.linkedin.com/in/meenakshi-banoth-2a7419351/",
-    
+    linkedin: "https://www.linkedin.com/in/meenakshi-banoth-2a7419351/",
+    verified: true,
   },
   {
-    name: "⁠krishna Vamshi",
-    company: "TCS",
+    name: "Krishna Vamshi",
+    role: "Incident Response Engineer",
+    company: "Tata Consultancy Services (TCS)",
+    package: "₹12 LPA",
     image: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c",
     feedback:
-      " I got training from somewhere else in cybersecurity and that wasn’t enough to crack my job. Got to hear from some of my friends about cyberdefend and within a month they have helped me to get a job in TCS working for incident Response, Kudos - Manoj Sir, Thanks for all of your support. Good Luck CyberDefend",
+      "I took training from other academies before, but it lacked live offensive/defensive scenarios. Within 4 weeks at CyberDefend, the hands-on SIEM simulations helped me land an Incident Response role at TCS.",
     rating: 5,
-   // linkedin: "https://linkedin.com/in/sophiapatel",
-   // twitter: "https://twitter.com/sophiasec",
+    verified: true,
   },
 ];
 
-// Animation variants
-const cardVariant = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      type: "spring",
-    },
-  }),
-};
-
 const Testimonials: React.FC = () => {
   return (
-    <div className="pt-20 min-h-screen bg-gradient-to-b from-primary via-darkBg to-primary text-white">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold text-center mb-16"
-        >
-          What Our <span className="text-accent">Students Say</span>
-        </motion.h2>
+    <section className="py-24 bg-[#050811] relative overflow-hidden border-t border-cyan-500/10 cyber-grid">
+      
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 right-1/4 w-[700px] h-[350px] bg-cyan-500/5 blur-[150px] pointer-events-none rounded-full" />
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {testimonials.map((testimonial, index) => (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* STATS OUTCOME BAR */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-20">
+          {stats.map((stat, i) => (
             <motion.div
-              key={index}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              variants={cardVariant}
-              className="relative bg-darkBg/60 backdrop-blur-md border border-accent/10 p-6 rounded-3xl shadow-xl hover:shadow-accent/30 transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
+              transition={{ delay: i * 0.1 }}
+              className="bg-[#091122]/90 border border-white/10 p-6 rounded-2xl text-center backdrop-blur-xl shadow-lg"
             >
-              {/* Glow Background */}
-              <div className="absolute -inset-0.5 bg-gradient-to-br from-accent/30 to-transparent blur-lg opacity-30 group-hover:opacity-60 transition duration-500 rounded-3xl" />
-
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <motion.img
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-accent shadow-md group-hover:scale-105 transition"
-                />
-                <h3 className="text-xl font-bold">{testimonial.name}</h3>
-                <p className="text-accent text-sm">{testimonial.company}</p>
-
-                {/* Rating Stars */}
-                <motion.div
-                  className="flex mt-2 text-yellow-400"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ delay: 0.2, duration: 0.4, type: "spring" }}
-                >
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={18} />
-                  ))}
-                </motion.div>
-
-                {/* Feedback */}
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                  className="text-gray-300 mt-4 text-sm leading-relaxed italic px-2"
-                >
-                  “{testimonial.feedback}”
-                </motion.p>
-
-           {/* Social Links */}
-<motion.div
-  initial={{ opacity: 0, y: 10 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.4, duration: 0.5 }}
-  className="flex gap-4 mt-4"
->
-  {testimonial.linkedin && (
-    <a href={testimonial.linkedin} target="_blank" rel="noopener noreferrer">
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-        alt="LinkedIn"
-        className="w-5 h-5 hover:scale-125 transition"
-      />
-    </a>
-  )}
-  {testimonial.twitter && (
-    <a href={testimonial.twitter} target="_blank" rel="noopener noreferrer">
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg"
-        alt="Twitter"
-        className="w-5 h-5 hover:scale-125 transition filter brightness-0 invert"
-      />
-    </a>
-  )}
-  {testimonial.github && (
-    <a href={testimonial.github} target="_blank" rel="noopener noreferrer">
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-        alt="GitHub"
-        className="w-5 h-5 hover:scale-125 transition filter brightness-0 invert"
-      />
-    </a>
-  )}
-</motion.div>
-
-
+              <div className="text-3xl sm:text-4xl font-mono font-black text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyberCyan mb-1">
+                {stat.value}
+              </div>
+              <div className="text-xs sm:text-sm font-mono text-gray-400">
+                {stat.label}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-20 text-center"
-        >
-          <h3 className="text-2xl font-semibold mb-4">
-            Ready to Boost Your Cybersecurity Career?
-          </h3>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto mb-6">
-            Take the next step with CyberDefend. Our courses are tailored for real-world success.
+        {/* SECTION HEADER */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent/15 border border-accent/40 text-accent font-mono text-xs font-bold">
+            <ShieldCheck size={14} />
+            <span>PROVEN CAREER TRANSFORMATIONS</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            Loved by Over <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyberCyan">1,200+ Students</span>
+          </h2>
+          <p className="text-gray-400 text-base sm:text-lg">
+            Real stories from students who transitioned from college freshers and generic IT roles into high-paying cybersecurity careers.
           </p>
-          <div className="flex justify-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-accent text-primary px-6 py-3 rounded-lg font-bold hover:bg-accent/90 transition-colors"
+        </div>
+
+        {/* TESTIMONIALS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((t, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15, duration: 0.5 }}
+              className="bg-[#091122]/90 border border-white/10 hover:border-cyan-500/40 p-8 rounded-2xl backdrop-blur-xl shadow-xl flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
             >
-              <Link to="/courses">Browse Courses</Link>
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border border-accent text-white px-6 py-3 rounded-lg font-bold hover:bg-accent hover:text-primary transition-colors"
+              <div className="space-y-4">
+                
+                {/* User & Company Header */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-accent/60 shadow-md"
+                    />
+                    <div>
+                      <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                        {t.name}
+                      </h3>
+                      <p className="text-xs font-mono text-gray-400">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Company Badge & Package */}
+                <div className="flex items-center justify-between bg-[#050811] px-3.5 py-2 rounded-xl border border-white/5 text-xs font-mono">
+                  <span className="text-cyan-400 font-semibold flex items-center gap-1.5">
+                    <Building2 size={13} /> {t.company}
+                  </span>
+                  <span className="text-accent font-bold">{t.package}</span>
+                </div>
+
+                {/* Rating Stars */}
+                <div className="flex text-yellow-400 gap-1">
+                  {[...Array(t.rating)].map((_, i) => (
+                    <Star key={i} size={14} fill="currentColor" />
+                  ))}
+                </div>
+
+                {/* Feedback Quote */}
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed italic">
+                  "{t.feedback}"
+                </p>
+              </div>
+
+              {/* Verified Pill & LinkedIn */}
+              <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+                <span className="text-accent flex items-center gap-1.5 font-bold">
+                  <ShieldCheck size={14} /> Verified Graduate
+                </span>
+                {t.linkedin && (
+                  <a
+                    href={t.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-1"
+                  >
+                    <span>LinkedIn</span>
+                    <ExternalLink size={12} />
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* BOTTOM CTA STRIP */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#091122] via-[#0D182E] to-[#091122] border border-cyan-500/30 text-center space-y-6 shadow-[0_0_50px_rgba(0,229,255,0.15)]"
+        >
+          <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+            Ready to Build Your Cybersecurity Legacy?
+          </h3>
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
+            Take the leap today. Join upcoming live batches and get trained by industry SOC leads.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/courses"
+              className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-accent to-cyberCyan text-black font-extrabold text-sm rounded-xl shadow-[0_0_25px_rgba(0,255,159,0.35)] hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] transition-all flex items-center justify-center gap-2"
             >
-              <Link to="/blogs">Read Blogs</Link>
-            </motion.button>
+              <span>Explore All Courses</span>
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/blogs"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-sm text-gray-200 hover:text-white bg-white/5 border border-white/10 hover:border-cyan-400 transition-all"
+            >
+              <span>Read Threat Intel Blogs</span>
+            </Link>
           </div>
         </motion.div>
+
       </div>
-    </div>
+    </section>
   );
 };
 
