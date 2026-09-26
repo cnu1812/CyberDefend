@@ -6,17 +6,17 @@ import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 
 const About = () => {
   const coFounders = [
-    {
-      name: "V Sreenivas",
-      role: "Co-Founder and CTO",
-      image: "https://github.com/user-attachments/assets/0932b7c7-a910-4105-b2e7-51c1bb9297a2",
-      description: "Leading strategy, operations, and outreach.",
-      socials: {
-        linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
-        twitter: "https://twitter.com/cnu1812",
-        github: "https://github.com/cnu1812",
-      },
-    },
+    // {
+    //   name: "V Sreenivas",
+    //   role: "Co-Founder and CTO",
+    //   image: "https://github.com/user-attachments/assets/0932b7c7-a910-4105-b2e7-51c1bb9297a2",
+    //   description: "Leading strategy, operations, and outreach.",
+    //   socials: {
+    //     linkedin: "https://www.linkedin.com/in/v-sreenivas-985088203/",
+    //     twitter: "https://twitter.com/cnu1812",
+    //     github: "https://github.com/cnu1812",
+    //   },
+    // },
     {
       name: "Manoj Kumar",
       role: "Founder",
